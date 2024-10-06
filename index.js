@@ -9,8 +9,8 @@ const PORT = process.env.PORT ||8080
 const app = express();
 app.use(cors())
 app.use(express.json())
-app.use("/user", userRouter),
-app.use("/products", productRouter)
+app.use("/api/auth", userRouter),
+app.use("/api/products", productRouter)
 
 
 

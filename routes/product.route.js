@@ -16,7 +16,7 @@ productRouter.get("/", async (req, res) => {
     }
 })
 
-productRouter.post("/create", auth, checkAccess(roles.seller), async (req, res) => {
+productRouter.post("/", auth, checkAccess(roles.seller), async (req, res) => {
     const productData = req.body;
     try {
         const newProduct = new ProductModel({ ...productData, seller: req.user._id })
@@ -29,7 +29,7 @@ productRouter.post("/create", auth, checkAccess(roles.seller), async (req, res) 
 })
 
 
-productRouter.patch("/update/:id", auth, checkAccess(roles.seller), async (req, res) => {
+productRouter.patch("/:id", auth, checkAccess(roles.seller), async (req, res) => {
     const { id } = req.params;
     try {
         const productId = req.params.id;
@@ -51,7 +51,7 @@ productRouter.patch("/update/:id", auth, checkAccess(roles.seller), async (req, 
 })
 
 
-productRouter.delete("/delete/:id", auth, checkAccess(roles.seller), async (req, res) => {
+productRouter.delete("/:id", auth, checkAccess(roles.seller), async (req, res) => {
     const { id } = req.params;
     try {
         const productId = req.params.id;
